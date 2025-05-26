@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "CS_CriptoCoinRest.Grpc";
+
+package wallet;
+
+// Request for transaction history
+message GetHistoryRequest {
+  int32 walletId = 1;
+}
+
+// Single transaction entry
+message TransactionEntry {
+  string currency = 1;
+  double amount = 2;
+  string timestamp = 3; // ISO 8601
+}
+
+// Response containing history
+message GetHistoryReply {
+  repeated TransactionEntry entries = 1;
+}
+
+// gRPC service definition
+service WalletService {
+  rpc GetTransactionHistory (GetHistoryRequest) returns (GetHistoryReply);
+}

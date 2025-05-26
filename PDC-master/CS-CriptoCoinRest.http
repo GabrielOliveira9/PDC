@@ -1,0 +1,6 @@
+@CS_CriptoCoinRest_HostAddress = http://localhost:5074
+
+GET {{CS_CriptoCoinRest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
